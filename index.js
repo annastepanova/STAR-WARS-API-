@@ -19,6 +19,10 @@ characters.addEventListener("change", e => {
 
   console.log("changing", e);
   let selectedChar = charactersFromApi[Number(e.target.value)]
+  console.log(selectedChar)
+  if (!selectedChar) {
+    card.classList.add("invisible")
+  }
   let tbody = document.createElement("tbody")
   charAttributes.map(attr => {
     let tr = document.createElement("tr")
@@ -32,7 +36,7 @@ characters.addEventListener("change", e => {
     tbody.appendChild(td)
   })
   console.log(tbody);
-  results.appendChild(tbody)
+  apiResults.appendChild(tbody)
   if (apiResults) {
     card.classList.remove("invisible")
   }
